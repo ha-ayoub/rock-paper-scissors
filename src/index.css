@@ -1,0 +1,359 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0f2a 0%, #1c4887 50%, #180f2a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.game-content {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.game-title {
+  font-size: 3.75rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.title-highlight {
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.score-board {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.score-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  width: 8rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.player-score .score-label {
+  color: #7fb4f6;
+}
+
+.computer-score .score-label {
+  color: #cecf6d;
+}
+
+.score-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.score-value {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.start-message {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: pulse 2s infinite;
+}
+
+.start-message p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+}
+
+.battle-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 3rem;
+  min-height: 200px;
+}
+
+.choice-display {
+  text-align: center;
+}
+
+.choice-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.choice-circle {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.choice-circle.blue {
+  background: linear-gradient(135deg, #5494fa, #2563eb);
+}
+
+.choice-circle.purple {
+  background: linear-gradient(135deg, #b56df9, #9333ea);
+}
+
+.choice-circle.green {
+  background: linear-gradient(135deg, #43b692, #099773);
+}
+
+.choice-circle.animating {
+  animation: bounce 0.6s infinite;
+}
+
+.choice-circle.pulse {
+  animation: pulse 2s infinite;
+}
+
+.choice-emoji {
+  font-size: 4.5rem;
+}
+
+.result-display {
+  text-align: center;
+  animation: pulse 1s infinite;
+}
+
+.result-text {
+  font-size: 3.75rem;
+  font-weight: bold;
+}
+
+.result-text.win {
+  color: #10b981;
+}
+
+.result-text.lose {
+  color: #ef4444;
+}
+
+.result-text.draw {
+  color: #fbbf24;
+}
+
+.choices-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.choice-button {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.choice-button.blue {
+  background: linear-gradient(135deg, #5494fa, #2563eb);
+}
+
+.choice-button.purple {
+  background: linear-gradient(135deg, #b56df9, #9333ea);
+}
+
+.choice-button.green {
+  background: linear-gradient(135deg, #5dcba8, #048766);
+}
+
+.choice-button:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+}
+
+.choice-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button-overlay {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.choice-button:hover:not(:disabled) .button-overlay {
+  opacity: 0.2;
+}
+
+.button-emoji {
+  font-size: 3.75rem;
+  color: white;
+  z-index: 1;
+}
+
+.button-name {
+  position: absolute;
+  bottom: 0.75rem;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.replay-container {
+  text-align: center;
+}
+
+.replay-button {
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #F9B16E, #F68080);
+  color: white;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.replay-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+}
+
+.rules-container {
+  width: 45vh;
+  margin: 4rem auto 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(24, 15, 42, 0.05));
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rules-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.rules-list {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  margin-left: 3rem;
+}
+
+.rules-list p {
+  margin-bottom: 0.25rem;
+}
+
+.footer {
+  width: 40vh;
+  margin: 4rem auto 0;
+}
+
+.developer_info {
+  margin: 0;
+  color: rgba(96, 136, 147, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.developer_info span {
+  font-weight: 600;
+  color: rgba(120, 251, 172, 0.2);
+  margin-left: 5px;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-title {
+    font-size: 2.5rem;
+  }
+
+  .battle-zone {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .choices-container {
+    flex-wrap: wrap;
+  }
+
+  .choice-button {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .button-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .rules-container{
+    width: 35vh;
+    margin-top: 3rem;
+  } 
+}
