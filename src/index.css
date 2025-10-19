@@ -75,6 +75,10 @@
   font-size: 3rem;
   font-weight: bold;
   color: white;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.score-value.animate {
+  animation: pop 0.6s ease;
 }
 
 .start-message {
@@ -326,6 +330,21 @@
 
   50% {
     opacity: 0.6;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+    color: inherit;
+  }
+  30% {
+    transform: scale(1.4);
+    color: #22c55e; /* vert vif */
+  }
+  100% {
+    transform: scale(1);
+    color: inherit;
   }
 }
 
