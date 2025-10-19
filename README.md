@@ -10,7 +10,7 @@ L’objectif est de proposer une expérience fluide, ludique et visuellement agr
 
 Le joueur affronte l’ordinateur dans une partie aléatoire : chaque tour révèle un effet visuel animé lorsque les choix apparaissent, puis affiche le résultat (gagné, perdu ou égalité).
 
-Ce projet a été conçu pour pratiquer React avec TypeScript, la gestion d’état, et la création d’interfaces interactives avec des animations CSS.
+Ce projet a été conçu pour pratiquer React avec Javascript, la gestion d’état, et la création d’interfaces interactives avec des animations CSS.
 
 ✨ Fonctionnalités
 
@@ -28,7 +28,7 @@ It delivers a smooth, fun, and visually appealing experience, featuring dynamic 
 
 The player competes against the computer in random rounds — each choice triggers a beautiful animation, followed by the result display (win, lose, or draw).
 
-The project focuses on practicing React with TypeScript, state management, and creating interactive UI with CSS animations.
+The project focuses on practicing React with Javascript, state management, and creating interactive UI with CSS animations.
 
 ✨ Features
 
