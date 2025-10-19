@@ -40,3 +40,5 @@ Fetches Sudoku boards from sudoku-api.vercel.app🔗
         Responsive design for all devices 
         Real-time score tracking and instant results
         Clean and minimal modern UI
+
+<img width="1176" height="1234" alt="image" src="https://github.com/user-attachments/assets/8f255036-5d70-4642-b4a6-fe524ee80de7" />
